@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # youknowball ⚽
 
 > Live scores, player stats, and deep football analytics for the 2026 FIFA World Cup.
@@ -102,3 +103,7 @@ Portugal to win it. Not up for debate.
 ## License
 
 MIT
+=======
+# youknowball
+live scores, player stats and deep football analytics for the 2026 FIFA World Cup
+>>>>>>> f3e2d0751424d18e3203592f2f34f337e617505f
