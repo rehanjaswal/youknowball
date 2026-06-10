@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 
 export function usePolling(fetchFn, { interval = 60000, fastInterval = 30000, shouldFastPoll } = {}) {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState(null)
   const [error, setError] = useState(null)
-  const dataRef = useRef(null)
+  const dataRef = useRef([])
 
   const load = useCallback(async () => {
     try {

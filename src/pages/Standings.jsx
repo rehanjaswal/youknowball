@@ -21,9 +21,11 @@ async function fetchStandings() {
 
 function Standings() {
   const fetchData = useCallback(fetchStandings, [])
-  const { data: groups = [], loading, secondsAgo } = usePolling(fetchData, {
+  const { data, loading, secondsAgo } = usePolling(fetchData, {
     interval: 60000,
   })
+
+  const groups = data ?? []
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-[1600px] mx-auto">

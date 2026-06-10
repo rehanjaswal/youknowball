@@ -1,7 +1,11 @@
 import axios from 'axios'
 
-const client = axios.create({ baseURL: '/api' })
+// In production, both endpoints are available via Vercel:
+// - /api/* routes to worldcup26.ir
+// - /api/football/* routes to the serverless function (api/football/[...path].js)
+// In dev, vite.config.js proxies both
 
+const client = axios.create({ baseURL: '/api' })
 const footballClient = axios.create({ baseURL: '/api/football' })
 
 export const getMatches = () => client.get('/get/games')

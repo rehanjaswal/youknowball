@@ -6,11 +6,11 @@ import FixtureCard from '../components/FixtureCard'
 
 function enrichMatches(games, teams, stadiums) {
   const teamsById = {}
-  teams.forEach(t => { teamsById[t.id] = t })
+  ;(teams ?? []).forEach(t => { teamsById[t.id] = t })
   const stadiumsById = {}
-  stadiums.forEach(s => { stadiumsById[s.id] = s })
+  ;(stadiums ?? []).forEach(s => { stadiumsById[s.id] = s })
 
-  return games.map(m => ({
+  return (games ?? []).map(m => ({
     ...m,
     homeTeam: teamsById[m.home_team_id],
     awayTeam: teamsById[m.away_team_id],
@@ -36,11 +36,13 @@ function LiveScores() {
     matches?.some(m => ['1H', '2H', 'HT', 'ET', 'PT'].includes(m.time_elapsed)),
   [])
 
-  const { data: matches = [], loading, secondsAgo } = usePolling(fetchData, {
+  const { data, loading, secondsAgo } = usePolling(fetchData, {
     interval: 60000,
     fastInterval: 30000,
     shouldFastPoll: isAnyLive,
   })
+
+  const matches = data ?? []
 
   const isLive = m => ['1H', '2H', 'HT', 'ET', 'PT'].includes(m.time_elapsed)
   const isFinished = m => m.finished === 'TRUE'
