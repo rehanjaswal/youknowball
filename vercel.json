@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://worldcup26.ir/:path*"
+      "source": "/api/get/:path*",
+      "destination": "https://worldcup26.ir/get/:path*"
     }
   ]
 }

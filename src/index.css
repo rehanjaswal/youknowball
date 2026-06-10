@@ -1,1 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-wc-gold: #E8B923;
+  --color-wc-gold-bright: #F5C842;
+  --color-wc-gold-dim: #B8921A;
+  --color-wc-navy: #0B1220;
+  --color-wc-navy-light: #141E33;
+  --color-wc-navy-card: #1A2744;
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #050508;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5C842 0%, #E8B923 50%, #D4A017 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-wc-gradient {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 185, 35, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(30, 77, 183, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #0B1220 0%, #050508 100%);
+}
+
+.card-glass {
+  background: rgba(20, 30, 51, 0.6);
+  border: 1px solid rgba(232, 185, 35, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.card-glass:hover {
+  border-color: rgba(232, 185, 35, 0.25);
+}
+
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
